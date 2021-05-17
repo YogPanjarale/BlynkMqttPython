@@ -1,6 +1,6 @@
 # The callback for when the client receives a CONNACK response from the server.
 from paho.mqtt.client import Client
-from blynk import BlynkClientThread, handle_message
+from blynk import BlynkClientThread
 blynk_client_threads = []
 def start_blynk_client_threads(client:Client):
     tokens = readlines("tokens.txt")
