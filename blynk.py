@@ -25,7 +25,7 @@ class BlynkClientThread(Thread):
     def mqtt_write_event(self,topic:str,value:str):
         try:
             pin =topic.split("/")[-1].removeprefix("V")
-            print("pin: ",pin)
+            # print("pin: ",pin)
             self.blynk.virtual_write(pin,value)
             # print(f"Publishing to Blynk {self.token} on V{pin} -> {value}")
         except:
