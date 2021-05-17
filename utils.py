@@ -19,8 +19,7 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     # pass
     print("Received message: " + msg.topic + " -> " + msg.payload.decode("utf-8"))
-    # handle_message(msg.topic,msg.payload.decode("utf-8"))
-list_of_str = [ "one","two"]
+list_of_str = [ "",""]
 def readlines(filepath:str)->list_of_str:
     lines = [i.strip() for i in open(filepath).readlines()]
     print(len(lines)," Tokens Found")
