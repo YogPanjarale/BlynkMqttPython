@@ -17,8 +17,8 @@ def on_connect(client, userdata, flags, rc):
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-    pass
-    # print("Received message: " + msg.topic + " -> " + msg.payload.decode("utf-8"))
+    # pass
+    print("Received message: " + msg.topic + " -> " + msg.payload.decode("utf-8"))
     # handle_message(msg.topic,msg.payload.decode("utf-8"))
 list_of_str = [ "one","two"]
 def readlines(filepath:str)->list_of_str:

@@ -10,10 +10,12 @@ class BlynkClientThread(Thread):
         self.mqtt_client = mqtt_client
         self.blynk = BlynkLib.Blynk(token, server=server, port=port)
         print(f"Blynk Client Thread started for token: {token} , server: {server}, port: {port}")
+        self.blynk.connect()
+        self.blynk.virtual_write_msg(0,"Hello World")
         #mqtt callbacks
         def mqtt_callback(client:Client,userdata,msg:MQTTMessage):
-            self.mqtt_write_event(topic=msg.topic,value=msg.payload.decode('utf-8'))
             print(f"Msg recived at {msg.topic} -> {msg.payload.decode('utf-8')}")
+            self.mqtt_write_event(topic=msg.topic,value=msg.payload.decode('utf-8'))
         self.mqtt_client.message_callback_add(f"blynk/{self.token}/#",mqtt_callback)
         #write callbacks
         def w(*args):
