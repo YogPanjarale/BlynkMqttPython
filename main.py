@@ -5,6 +5,8 @@ MQTT_SERVER = os.getenv("MQTT_SERVER")
 MQTT_SERVER_PORT  = os.getenv("MQTT_SERVER_PORT")
 MQTT_USER = os.getenv('MQTT_USER')
 MQTT_PASS = os.getenv('MQTT_PASS')
+BLYNK_SERVER = os.getenv('BLYNK_SERVER')
+BLYNK_SERVER_PORT = os.getenv('BLYNK_SERVER_PORT')
 import threading
 from utils import on_connect, on_message, start_blynk_client_threads
 import paho.mqtt.client as mqtt

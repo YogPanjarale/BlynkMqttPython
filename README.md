@@ -9,6 +9,8 @@ MQTT_SERVER=yourserverdomain
 MQTT_SERVER_PORT = port of mqtt
 MQTT_USER = yourusername
 MQTT_PASS = youruserpassword
+BLYNK_SERVER = blynk-cloud.com
+BLYNK_SERVER_PORT = 80
 ```
 
 2. Make `tokens.txt` file with list of all tokens you want to bridge
