@@ -19,4 +19,7 @@ token1knjnjnjbj
 token2kdasascad
 ```
 
-run main.py
+3. run `pip install -r requirements.txt`
+
+4. run main.py
+
