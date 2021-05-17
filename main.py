@@ -23,7 +23,9 @@ client.username_pw_set(MQTT_USER, MQTT_PASS)
 # connect to HiveMQ Cloud on port 8883
 client.connect(MQTT_SERVER,int(MQTT_SERVER_PORT))
 client.subscribe("blynk/#")
+#starting blynk client threads
 start_blynk_client_threads(client=client)
+
 t=threading.Thread(target=client.loop_forever)
 t.start()
 print("MQTT SERVER CONNECTED")

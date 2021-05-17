@@ -14,7 +14,7 @@ class BlynkClientThread(Thread):
         self.blynk.virtual_write_msg(0,"Hello World")
         #mqtt callbacks
         def mqtt_callback(client:Client,userdata,msg:MQTTMessage):
-            print(f"Msg recived at {msg.topic} -> {msg.payload.decode('utf-8')}")
+            # print(f"Msg recived at {msg.topic} -> {msg.payload.decode('utf-8')}")
             self.mqtt_write_event(topic=msg.topic,value=msg.payload.decode('utf-8'))
         self.mqtt_client.message_callback_add(f"blynk/{self.token}/#",mqtt_callback)
         #write callbacks
@@ -27,13 +27,13 @@ class BlynkClientThread(Thread):
             pin =topic.split("/")[-1].removeprefix("V")
             print("pin: ",pin)
             self.blynk.virtual_write(pin,value)
-            print(f"Publishing to Blynk {self.token} on V{pin} -> {value}")
+            # print(f"Publishing to Blynk {self.token} on V{pin} -> {value}")
         except:
             pass
     def blynk_write_event(self, pin: int, value:str):
         self.mqtt_client.publish(
             topic=f"blynk/{self.token}/V{pin}", payload=str(value))
-        print(f"Publising to blynk/{self.token}/V{pin}  -> {value}")
+        # print(f"Publising to blynk/{self.token}/V{pin}  -> {value}")
     def run(self):
         while True:
             self.blynk.run()
